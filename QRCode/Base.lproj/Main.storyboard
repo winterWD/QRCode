@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PRf-cE-vGg">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="090-GN-u4n">
+            <objects>
+                <navigationController id="PRf-cE-vGg" customClass="WDNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1nT-Pr-D5g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="lZA-OM-F77"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNC-00-r1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-376" y="333"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWE-lL-Mky">
+                                <rect key="frame" x="225" y="164" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.3411764706" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="EEz-ju-iJc"/>
+                                    <constraint firstAttribute="height" constant="40" id="hqZ-Lb-SHg"/>
+                                </constraints>
+                                <state key="normal" title="二维码扫描"/>
+                                <connections>
+                                    <action selector="QRCodeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sXI-Kn-d8H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7B-h5-XUU">
+                                <rect key="frame" x="225" y="244" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.3411764706" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="JQT-Mx-fwS"/>
+                                    <constraint firstAttribute="height" constant="40" id="a2r-bQ-Jfk"/>
+                                </constraints>
+                                <state key="normal" title="条形码扫描"/>
+                                <connections>
+                                    <action selector="barCodeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vaY-eG-HFy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uWE-lL-Mky" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1FX-DU-oWK"/>
+                            <constraint firstItem="F7B-h5-XUU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FzJ-Ec-Nam"/>
+                            <constraint firstItem="F7B-h5-XUU" firstAttribute="top" secondItem="uWE-lL-Mky" secondAttribute="bottom" constant="40" id="obv-Xp-hWO"/>
+                            <constraint firstItem="uWE-lL-Mky" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="wo3-XZ-3Rt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bWn-EK-A9U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="259" y="333"/>
+        </scene>
+    </scenes>
+</document>
