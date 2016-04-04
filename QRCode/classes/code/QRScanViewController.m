@@ -35,30 +35,6 @@
         return;
     }
     
-//    //创建输入流
-//    AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-//    //创建输出流
-//    AVCaptureMetadataOutput * output = [[AVCaptureMetadataOutput alloc]init];
-//    //设置代理 在主线程里刷新
-//    [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-//    
-//    //初始化链接对象
-//    self.avSession = [[AVCaptureSession alloc]init];
-//    //高质量采集率
-//    [self.avSession setSessionPreset:AVCaptureSessionPresetHigh];
-//    
-//    [self.avSession addInput:input];
-//    [self.avSession addOutput:output];
-//    //设置扫码支持的编码格式(如下设置条形码和二维码兼容)
-//    output.metadataObjectTypes=@[AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
-//    
-//    AVCaptureVideoPreviewLayer * layer = [AVCaptureVideoPreviewLayer layerWithSession:self.avSession];
-//    layer.videoGravity=AVLayerVideoGravityResizeAspectFill;
-//    layer.frame=self.view.layer.bounds;
-//    [self.view.layer insertSublayer:layer atIndex:0];
-//    //开始捕获
-//    [self.avSession startRunning];
-    
     // 创建输入流
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
     // 创建输出流
@@ -66,7 +42,7 @@
     // 设置代理 在主线程刷新
     [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
     
-    output.rectOfInterest=CGRectMake(0.0,0.5,0.5,0.5);
+    output.rectOfInterest=CGRectMake(0.0,0.0,0.5,0.5);
     
     // 初始化链接对象
     self.avSession = [[AVCaptureSession alloc] init];
@@ -77,11 +53,14 @@
     [self.avSession addOutput:output];
     
     // 设置扫码支持的编码格式（条码和二维码兼容）
+    // 注：设置必须在 [self.avSession addOutput:output]; 执行，否则会crash
     output.metadataObjectTypes = @[
-                                   AVMetadataObjectTypeQRCode,
-                                   AVMetadataObjectTypeEAN13Code,
-                                   AVMetadataObjectTypeEAN8Code,
-                                   AVMetadataObjectTypeCode128Code
+                                   AVMetadataObjectTypeQRCode, //二维码
+                                   AVMetadataObjectTypeEAN13Code, //商品条形码
+                                   AVMetadataObjectTypeEAN8Code, //商品条形码
+                                   AVMetadataObjectTypeCode128Code, //商品条形码
+                                   AVMetadataObjectTypeUPCECode, //商品条形码
+                                   AVMetadataObjectTypeCode39Code //商品条形码
                                    ];
     
     AVCaptureVideoPreviewLayer *layer = [AVCaptureVideoPreviewLayer layerWithSession:self.avSession];
@@ -96,10 +75,14 @@
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     if (metadataObjects.count>0) {
-        //[session stopRunning];
+//        [self.avSession stopRunning];
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex : 0 ];
         //输出扫描字符串
         NSLog(@"%@",metadataObject.stringValue);
+        if (self.QRResultBlock) {
+            self.QRResultBlock(metadataObject.stringValue);
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 @end

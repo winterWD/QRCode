@@ -8,13 +8,10 @@
 
 #import "ViewController.h"
 #import "QRScanViewController.h"
-#import "JHDatePickerView.h"
 #import "WDNavigationController.h"
 
 @interface ViewController ()
-/** JHDatePickerView */
-@property (nonatomic, strong)  JHDatePickerView *dataPickerView;
-
+@property (nonatomic, weak) UILabel *QRResultLabel;
 @end
 
 @implementation ViewController
@@ -24,11 +21,10 @@
     
     self.title = @"二维码/条码识别";
     
-    self.dataPickerView = [[JHDatePickerView alloc] initWithFrame:CGRectMake(0, 250, self.view.bounds.size.width, 0)];
-    [self.view addSubview:self.dataPickerView];
-    self.dataPickerView.dateResultBlock = ^(NSString *dateString){
-        NSLog(@"date: %@",dateString);
-    };
+    UILabel *QRResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, CGRectGetWidth(self.view.frame), 21)];
+    QRResultLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:QRResultLabel];
+    self.QRResultLabel = QRResultLabel;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +38,10 @@
     [self.navigationController pushViewController:QRVC animated:YES];
 //    WDNavigationController *nav = [[WDNavigationController alloc] initWithRootViewController:QRVC];
 //    [self presentViewController:nav animated:YES completion:nil];
+    
+    QRVC.QRResultBlock = ^(NSString *result){
+        self.QRResultLabel.text = result;
+    };
 }
 
 - (IBAction)barCodeButtonClicked:(UIButton *)sender

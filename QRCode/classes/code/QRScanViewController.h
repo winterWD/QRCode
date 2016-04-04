@@ -10,4 +10,5 @@
 
 @interface QRScanViewController : UIViewController
 
+@property (nonatomic, copy) void (^QRResultBlock)(NSString *result);
 @end
