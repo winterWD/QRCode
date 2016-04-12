@@ -19,12 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+#ifdef DEBUG
     self.title = @"二维码/条码识别";
     
-    UILabel *QRResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, CGRectGetWidth(self.view.frame), 21)];
+    UILabel *QRResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, CGRectGetWidth(self.view.frame), 50)];
+    QRResultLabel.numberOfLines = 0;
     QRResultLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:QRResultLabel];
     self.QRResultLabel = QRResultLabel;
+    
+#endif
 }
 
 - (void)didReceiveMemoryWarning {

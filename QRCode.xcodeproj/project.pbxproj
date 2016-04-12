@@ -21,6 +21,7 @@
 		C8723ACB1C5720DB00AF7CC5 /* UIImage+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = C8723ACA1C5720DB00AF7CC5 /* UIImage+Custom.m */; };
 		C8723ACF1C57216600AF7CC5 /* QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8723ACD1C57216600AF7CC5 /* QRScanViewController.m */; };
 		C8723AD41C574DFB00AF7CC5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8723AD31C574DFB00AF7CC5 /* AVFoundation.framework */; };
+		C8E73C781CBD0EEE00CC17C0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E73C771CBD0EEE00CC17C0 /* CoreImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C8723ACC1C57216600AF7CC5 /* QRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRScanViewController.h; sourceTree = "<group>"; };
 		C8723ACD1C57216600AF7CC5 /* QRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRScanViewController.m; sourceTree = "<group>"; };
 		C8723AD31C574DFB00AF7CC5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C8E73C771CBD0EEE00CC17C0 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E73C781CBD0EEE00CC17C0 /* CoreImage.framework in Frameworks */,
 				C8723AD41C574DFB00AF7CC5 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +208,7 @@
 		C8723AD51C574E3000AF7CC5 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				C8E73C771CBD0EEE00CC17C0 /* CoreImage.framework */,
 				C8723AD31C574DFB00AF7CC5 /* AVFoundation.framework */,
 			);
 			name = Framework;
