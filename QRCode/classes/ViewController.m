@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "QRScanViewController.h"
 #import "WDNavigationController.h"
+#import "JHWebViewController.h"
 
 @interface ViewController ()
 @property (nonatomic, weak) UILabel *QRResultLabel;
@@ -22,18 +23,32 @@
 #ifdef DEBUG
     self.title = @"二维码/条码识别";
     
-    UILabel *QRResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, CGRectGetWidth(self.view.frame), 50)];
+    UILabel *QRResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, CGRectGetWidth(self.view.frame), 100)];
     QRResultLabel.numberOfLines = 0;
     QRResultLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:QRResultLabel];
     self.QRResultLabel = QRResultLabel;
+    self.QRResultLabel.textColor = [UIColor blueColor];
     
+    self.QRResultLabel.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resultAction)];
+    [self.QRResultLabel addGestureRecognizer:tap];
 #endif
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)resultAction
+{
+    NSString *link = self.QRResultLabel.text;
+    if ([link containsString:@"http"]) {
+        [self pushToWebViewControllerWithLink:link];
+    }
+}
+
+- (void)pushToWebViewControllerWithLink:(NSString *)link
+{
+    JHWebViewController *toViewController = [JHWebViewController webViewControllerWithUrl:link];
+    [self.navigationController pushViewController:toViewController animated:YES];
 }
 
 - (IBAction)QRCodeButtonClicked:(UIButton *)sender

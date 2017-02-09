@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C83DA37F1E4C3A8200936242 /* JHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83DA37E1E4C3A8200936242 /* JHWebViewController.m */; };
+		C83DA3821E4C3E6900936242 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83DA3811E4C3E6900936242 /* JavaScriptCore.framework */; };
 		C86629B11CAE6767005C7C08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C86629B01CAE6767005C7C08 /* Assets.xcassets */; };
 		C86629BA1CAE6A03005C7C08 /* QRScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C86629B91CAE6A03005C7C08 /* QRScanViewController.xib */; };
 		C8723A821C571C1300AF7CC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8723A811C571C1300AF7CC5 /* main.m */; };
@@ -42,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C83DA37D1E4C3A8200936242 /* JHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHWebViewController.h; sourceTree = "<group>"; };
+		C83DA37E1E4C3A8200936242 /* JHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHWebViewController.m; sourceTree = "<group>"; };
+		C83DA3811E4C3E6900936242 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		C86629B01CAE6767005C7C08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C86629B91CAE6A03005C7C08 /* QRScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRScanViewController.xib; sourceTree = "<group>"; };
 		C8723A7D1C571C1300AF7CC5 /* QRCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83DA3821E4C3E6900936242 /* JavaScriptCore.framework in Frameworks */,
 				C8E73C781CBD0EEE00CC17C0 /* CoreImage.framework in Frameworks */,
 				C8723AD41C574DFB00AF7CC5 /* AVFoundation.framework in Frameworks */,
 			);
@@ -99,6 +105,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C83DA37C1E4C3A8200936242 /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C83DA37D1E4C3A8200936242 /* JHWebViewController.h */,
+				C83DA37E1E4C3A8200936242 /* JHWebViewController.m */,
+			);
+			path = WebViewController;
+			sourceTree = "<group>";
+		};
+		C83DA3801E4C3E6900936242 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C83DA3811E4C3E6900936242 /* JavaScriptCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C8723A741C571C1300AF7CC5 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +129,7 @@
 				C8723A991C571C1300AF7CC5 /* QRCodeTests */,
 				C8723AA41C571C1300AF7CC5 /* QRCodeUITests */,
 				C8723A7E1C571C1300AF7CC5 /* Products */,
+				C83DA3801E4C3E6900936242 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +191,7 @@
 		C8723ABB1C571EB900AF7CC5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				C83DA37C1E4C3A8200936242 /* WebViewController */,
 				C8723AC41C571F2400AF7CC5 /* category */,
 				C8723ABC1C571EB900AF7CC5 /* codeScan */,
 				C8723ABD1C571EB900AF7CC5 /* NavigationController */,
@@ -354,6 +379,7 @@
 				C8723AC21C571EB900AF7CC5 /* WDNavigationController.m in Sources */,
 				C8723AC31C571EB900AF7CC5 /* ViewController.m in Sources */,
 				C8723A821C571C1300AF7CC5 /* main.m in Sources */,
+				C83DA37F1E4C3A8200936242 /* JHWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +529,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QRCode/QRCode_prefix.pch";
 				INFOPLIST_FILE = QRCode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = wd.QRCode;
@@ -525,7 +551,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QRCode/QRCode_prefix.pch";
 				INFOPLIST_FILE = QRCode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = wd.QRCode;
