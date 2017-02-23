@@ -307,7 +307,7 @@
 				TargetAttributes = {
 					C8723A7C1C571C1300AF7CC5 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 3AZ5DU686K;
+						DevelopmentTeam = L27NWNZJ2R;
 					};
 					C8723A951C571C1300AF7CC5 = {
 						CreatedOnToolsVersion = 7.2;
@@ -522,6 +522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = L27NWNZJ2R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QRCode",
@@ -544,6 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = L27NWNZJ2R;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QRCode",
